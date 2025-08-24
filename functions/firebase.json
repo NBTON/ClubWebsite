@@ -1,0 +1,27 @@
+{
+  "functions": {
+    "source": "src",
+    "runtime": "nodejs20",
+    "predeploy": [
+      "npm --prefix functions run lint"
+    ]
+  },
+  "firestore": {
+    "rules": "../university-club-frontend/firestore.rules",
+    "indexes": "firestore.indexes.json"
+  },
+  "hosting": {
+    "public": "../university-club-frontend/out",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
